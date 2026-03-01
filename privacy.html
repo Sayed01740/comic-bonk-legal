@@ -1,57 +1,496 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Privacy Policy - Comic Bonk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Comic Bonk</title>
+    <meta name="description"
+        content="Privacy Policy for Comic Bonk, a blockchain arcade game built for the Solana Seeker.">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            line-height: 1.6
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        h1,
-        h2 {
-            color: #222
+        :root {
+            --primary: #9945FF;
+            --primary-light: rgba(153, 69, 255, 0.12);
+            --secondary: #14F195;
+            --secondary-light: rgba(20, 241, 149, 0.12);
+            --bg: #0a0a0f;
+            --surface: #13131a;
+            --surface-2: #1c1c26;
+            --border: rgba(255, 255, 255, 0.06);
+            --text: #f0f0f5;
+            --text-muted: #8a8a9a;
+            --text-dim: #5a5a6a;
+            --danger: #ff4c6a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        /* Subtle grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(153, 69, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(153, 69, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+        }
+
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary), #7b2ff2);
+            padding: 4px 0;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .meta-row {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            color: var(--text-dim);
+        }
+
+        .meta-item strong {
+            color: var(--text-muted);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 40px 0;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 40px;
+        }
+
+        .toc h2 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            margin-bottom: 16px;
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc;
+            padding: 0;
+        }
+
+        .toc ol li {
+            counter-increment: toc;
+            margin-bottom: 8px;
+        }
+
+        .toc ol li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .toc ol li a::before {
+            content: counter(toc, decimal-leading-zero) ".";
+            color: var(--primary);
+            font-weight: 600;
+            margin-right: 10px;
+            font-size: 0.82rem;
+        }
+
+        .toc ol li a:hover {
+            color: var(--secondary);
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2.section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 20px 0 10px;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            font-size: 0.92rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 16px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        /* Callout boxes */
+        .callout {
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 18px 0;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .callout-danger {
+            background: rgba(255, 76, 106, 0.08);
+            border-left: 3px solid var(--danger);
+            color: #ffb0bd;
+        }
+
+        .callout-info {
+            background: var(--secondary-light);
+            border-left: 3px solid var(--secondary);
+            color: #b0ffe0;
+        }
+
+        .callout strong {
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.82rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .container {
+                padding: 32px 16px 60px;
+            }
+
+            .toc {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <div class="top-bar">Legal Documentation — Comic Bonk</div>
 
-    <h1>Privacy Policy</h1>
-    <p><strong>Effective Date:</strong> February 24, 2026</p>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Legal Portal</a>
 
-    <p>Comic Bonk respects your privacy. This policy explains how we handle information when you use our app.</p>
+        <header>
+            <span class="badge">Privacy</span>
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">How Comic Bonk handles your data, wallet interactions, and device information.</p>
+            <div class="meta-row">
+                <div class="meta-item"><strong>App:</strong> Comic Bonk</div>
+                <div class="meta-item"><strong>Package:</strong> com.comicbonk.app</div>
+                <div class="meta-item"><strong>Effective:</strong> February 1, 2026</div>
+                <div class="meta-item"><strong>Updated:</strong> March 1, 2026</div>
+            </div>
+        </header>
 
-    <h2>Wallet Connection</h2>
-    <p>Comic Bonk connects to Solana wallets via Seed Vault secure signing. We never store private keys or seed phrases.
-    </p>
+        <p>Comic Bonk is a blockchain-arcade game built for the Solana Seeker, designed to be compatible with Solana and
+            other supported wallets. Privacy matters to us — including our users' data privacy.</p>
 
-    <h2>Guest Mode</h2>
-    <p>Users may play in Guest Mode without connecting a wallet.</p>
+        <div class="divider"></div>
 
-    <h2>NFT Minting</h2>
-    <p>NFT minting is optional. Users approve transactions themselves and may pay Solana network fees.</p>
+        <!-- Table of Contents -->
+        <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#info-we-process">Information We Process</a></li>
+                <li><a href="#technical-data">Technical Data</a></li>
+                <li><a href="#how-we-use">How We Use Information</a></li>
+                <li><a href="#what-we-dont">What We Do NOT Do</a></li>
+                <li><a href="#third-party">Third-Party Services</a></li>
+                <li><a href="#security">Data Security</a></li>
+                <li><a href="#children">Children's Privacy</a></li>
+                <li><a href="#changes">Changes to This Policy</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ol>
+        </nav>
 
-    <h2>Data Collection</h2>
-    <p>We do not collect personal data directly. Basic technical data such as IP address or device info may be logged by
-        hosting or blockchain services.</p>
+        <!-- Section 1 -->
+        <section id="info-we-process">
+            <h2 class="section-title"><span class="section-number">01</span> Information We Process</h2>
 
-    <h2>Third-Party Services</h2>
-    <ul>
-        <li>Solana Blockchain</li>
-        <li>Arweave (for metadata hosting)</li>
-        <li>GitHub Pages (legal page hosting)</li>
-    </ul>
+            <h3>1.1 Guest Mode</h3>
+            <p>If you choose to use the "Play as Guest" feature:</p>
+            <ul>
+                <li>No wallet connection is required</li>
+                <li>No blockchain interaction occurs</li>
+                <li>No personal data is processed or stored</li>
+                <li>No cookies or usage IP is recorded for sessions</li>
+            </ul>
 
-    <h2>Contact</h2>
-    <p>Email: sayedhasan01740@gmail.com<br>
-        Support: Comiclab101@gmail.com</p>
+            <h3>1.2 Wallet Information (Connected Access)</h3>
+            <p>When you connect a Solana wallet to Comic Bonk, we may process:</p>
+            <ul>
+                <li>Your public wallet address</li>
+                <li>Authorization messages or identity verification (if applicable)</li>
+                <li>On-chain transaction history</li>
+                <li>NFT mint details, events, or access status</li>
+            </ul>
 
+            <div class="callout callout-danger">
+                <strong>We do NOT collect, store, or access:</strong><br>
+                ✕ Your private keys<br>
+                ✕ Your seed phrases or recovery phrases<br>
+                ✕ Your wallet passwords<br><br>
+                Wallet connection uses Solana Seed Vault / Solana Mobile Wallet Adapter signing only. Your keys never
+                leave your secure device environment.
+            </div>
+
+            <h3>1.3 Data Stored on Your Device</h3>
+            <p>To provide a seamless experience, Comic Bonk may store limited data locally on your device:</p>
+            <ul>
+                <li><strong>Game State / Progress</strong> — Your app automatically caches game state. If you clear app
+                    data, this data will not be recoverable.</li>
+                <li><strong>High Scores</strong> — Your personal best scores are stored locally on device.</li>
+                <li><strong>Local Wallet Session</strong> — Connection preferences are stored through your wallet
+                    provider for auto-reconnect functionality.</li>
+            </ul>
+
+            <h3>1.4 Blockchain Data</h3>
+            <p>Blockchain transactions conducted through this app are publicly recorded on the Solana network. This data
+                is public and immutable by default — we do not control or modify blockchain data visibility.</p>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="technical-data">
+            <h2 class="section-title"><span class="section-number">02</span> Technical Data</h2>
+            <p>To maintain performance and stability, we may process limited technical data:</p>
+            <ul>
+                <li>Crash logs and error reports</li>
+                <li>Device type and OS version</li>
+                <li>General usage analytics strictly to improve stability and app performance</li>
+            </ul>
+            <p>Our hosting provider (GitHub Pages) and RPC providers may collect standard IP addresses and device
+                information for security and content delivery purposes.</p>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="how-we-use">
+            <h2 class="section-title"><span class="section-number">03</span> How We Use Information</h2>
+            <ul>
+                <li>Direct wallet interactions and auto-discovery on the blockchain</li>
+                <li>Display user wallet balance or username/identity, if provided</li>
+                <li>Facilitate NFT "Gaming Pass" minting (optional, may require SOL network fees)</li>
+            </ul>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="what-we-dont">
+            <h2 class="section-title"><span class="section-number">04</span> What We Do NOT Do</h2>
+            <div class="callout callout-info">
+                <strong>Our commitment to your privacy:</strong><br>
+                ✕ We do NOT collect private keys or seed phrases<br>
+                ✕ We do NOT sell your data<br>
+                ✕ We do NOT use behavioral tracking
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="third-party">
+            <h2 class="section-title"><span class="section-number">05</span> Third-Party Services</h2>
+            <p>Comic Bonk may rely on the following third-party infrastructure. These services process data under their
+                own privacy policies:</p>
+            <ul>
+                <li><strong>Solana Network</strong> — For blockchain state, transactions, and RPC endpoints</li>
+                <li><strong>Arweave Gateways</strong> — For accessing decentralized metadata for NFTs</li>
+                <li><strong>Supabase</strong> — For backend services and hosting</li>
+                <li><strong>GitHub Pages</strong> — For hosting web resources and legal pages</li>
+            </ul>
+        </section>
+
+        <!-- Section 6 -->
+        <section id="security">
+            <h2 class="section-title"><span class="section-number">06</span> Data Security</h2>
+            <p>We implement reasonable security measures, procedures, and technical safeguards. We do not store
+                sensitive data such as passwords on our servers. Data collected for provisioning purposes is removed
+                when no longer necessary.</p>
+        </section>
+
+        <!-- Section 7 -->
+        <section id="children">
+            <h2 class="section-title"><span class="section-number">07</span> Children's Privacy</h2>
+            <p>Comic Bonk is not intended for children under the age of 13. We do not knowingly collect personal
+                information from children.</p>
+        </section>
+
+        <!-- Section 8 -->
+        <section id="changes">
+            <h2 class="section-title"><span class="section-number">08</span> Changes to This Policy</h2>
+            <p>We reserve the right to update this Privacy Policy at any time. This will not diminish our commitment to
+                transparency. Material changes will be communicated on the app's launch screen where appropriate.</p>
+        </section>
+
+        <!-- Section 9 -->
+        <section id="contact">
+            <h2 class="section-title"><span class="section-number">09</span> Contact</h2>
+            <p>For questions about your data or to make a privacy-related request, please contact us:</p>
+            <ul>
+                <li><strong>Publisher:</strong> sayed</li>
+                <li><strong>Support Email:</strong> Comiclab101@gmail.com</li>
+                <li><strong>Publisher Email:</strong> sayedhasan01740@gmail.com</li>
+                <li><strong>Website:</strong> <a href="https://github.com/Sayed01740"
+                        style="color:var(--primary)">github.com/Sayed01740</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Comic Bonk. All rights reserved.</p>
+        <p style="margin-top:8px"><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a>
+            · <a href="copyright.html">Copyright</a></p>
+    </footer>
 </body>
 
 </html>
