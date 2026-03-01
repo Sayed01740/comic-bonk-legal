@@ -1,45 +1,488 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Terms of Service - Comic Bonk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — Comic Bonk</title>
+    <meta name="description"
+        content="Terms of Service for Comic Bonk, a blockchain arcade game built for the Solana Seeker.">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #9945FF;
+            --primary-light: rgba(153, 69, 255, 0.12);
+            --secondary: #14F195;
+            --secondary-light: rgba(20, 241, 149, 0.12);
+            --bg: #0a0a0f;
+            --surface: #13131a;
+            --surface-2: #1c1c26;
+            --border: rgba(255, 255, 255, 0.06);
+            --text: #f0f0f5;
+            --text-muted: #8a8a9a;
+            --text-dim: #5a5a6a;
+            --danger: #ff4c6a;
+            --warning: #ffb347;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            line-height: 1.6
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(153, 69, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(153, 69, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+        }
+
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary), #7b2ff2);
+            padding: 4px 0;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .meta-row {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            color: var(--text-dim);
+        }
+
+        .meta-item strong {
+            color: var(--text-muted);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 40px 0;
+        }
+
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 40px;
+        }
+
+        .toc h2 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            margin-bottom: 16px;
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc;
+            padding: 0;
+        }
+
+        .toc ol li {
+            counter-increment: toc;
+            margin-bottom: 8px;
+        }
+
+        .toc ol li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .toc ol li a::before {
+            content: counter(toc, decimal-leading-zero) ".";
+            color: var(--primary);
+            font-weight: 600;
+            margin-right: 10px;
+            font-size: 0.82rem;
+        }
+
+        .toc ol li a:hover {
+            color: var(--secondary);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2.section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            font-size: 0.92rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 16px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .callout {
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 18px 0;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .callout-danger {
+            background: rgba(255, 76, 106, 0.08);
+            border-left: 3px solid var(--danger);
+            color: #ffb0bd;
+        }
+
+        .callout-warning {
+            background: rgba(255, 179, 71, 0.08);
+            border-left: 3px solid var(--warning);
+            color: #ffe0b0;
+        }
+
+        .callout-info {
+            background: var(--secondary-light);
+            border-left: 3px solid var(--secondary);
+            color: #b0ffe0;
+        }
+
+        .callout strong {
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.82rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .container {
+                padding: 32px 16px 60px;
+            }
+
+            .toc {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <div class="top-bar">Legal Documentation — Comic Bonk</div>
 
-    <h1>Terms of Service</h1>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Legal Portal</a>
 
-    <p>By using Comic Bonk, you agree to these terms.</p>
+        <header>
+            <span class="badge">Terms</span>
+            <h1>Terms of Service</h1>
+            <p class="subtitle">By accessing or using Comic Bonk, you agree to these terms.</p>
+            <div class="meta-row">
+                <div class="meta-item"><strong>App:</strong> Comic Bonk</div>
+                <div class="meta-item"><strong>Package:</strong> com.comicbonk.app</div>
+                <div class="meta-item"><strong>Effective:</strong> February 1, 2026</div>
+                <div class="meta-item"><strong>Updated:</strong> March 1, 2026</div>
+            </div>
+        </header>
 
-    <h2>Use of the App</h2>
-    <p>You agree not to exploit bugs, cheat, or misuse the application.</p>
+        <p>These Terms &amp; Conditions ("Terms") govern your use of Comic Bonk. By accessing or using the app, you
+            agree to these terms.</p>
 
-    <h2>Blockchain Transactions</h2>
-    <p>All blockchain transactions are initiated and approved by the user. Transactions on Solana are irreversible and
-        may require network fees.</p>
+        <div class="divider"></div>
 
-    <h2>No Financial Advice</h2>
-    <p>Comic Bonk does not provide financial or investment advice.</p>
+        <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#eligibility">Eligibility</a></li>
+                <li><a href="#guest-mode">Guest Mode</a></li>
+                <li><a href="#wallet-blockchain">Wallet &amp; Blockchain Use</a></li>
+                <li><a href="#auto-reconnect">Auto-Reconnect &amp; Local Data Storage</a></li>
+                <li><a href="#fees">Fees &amp; No Refund Policy</a></li>
+                <li><a href="#gameplay">Gameplay &amp; Updates</a></li>
+                <li><a href="#prohibited">Prohibited Conduct</a></li>
+                <li><a href="#ip">Intellectual Property</a></li>
+                <li><a href="#liability">Limitation of Liability</a></li>
+                <li><a href="#disclaimer">Disclaimer</a></li>
+                <li><a href="#changes">Changes to Terms</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ol>
+        </nav>
 
-    <h2>Limitation of Liability</h2>
-    <p>We are not responsible for blockchain network issues, wallet errors, or user mistakes.</p>
+        <!-- Section 1 -->
+        <section id="eligibility">
+            <h2 class="section-title"><span class="section-number">01</span> Eligibility</h2>
+            <p>You must comply with all applicable laws in your jurisdiction when using the app. You are responsible for
+                ensuring that use of blockchain-based applications is legal in your region.</p>
+        </section>
 
-    <h2>Changes</h2>
-    <p>We may update these terms at any time.</p>
+        <!-- Section 2 -->
+        <section id="guest-mode">
+            <h2 class="section-title"><span class="section-number">02</span> Guest Mode</h2>
+            <p>Guest Mode is a free, limited-time trial (30 seconds per session) that does not require a wallet
+                connection or any transaction. This mode is provided for preview purposes only.</p>
+        </section>
 
-    <h2>Contact</h2>
-    <p>Email: sayedhasan01740@gmail.com</p>
+        <!-- Section 3 -->
+        <section id="wallet-blockchain">
+            <h2 class="section-title"><span class="section-number">03</span> Wallet &amp; Blockchain Use</h2>
+            <p>Comic Bonk requires connection to a Solana wallet for certain features. By using the app, you
+                acknowledge:</p>
+            <div class="callout callout-warning">
+                <strong>⚠ Important — Blockchain Responsibility:</strong><br>
+                • Blockchain transactions are <strong>final and irreversible</strong><br>
+                • Network (gas/SOL) fees may apply and are paid to the Solana network<br>
+                • You are solely responsible for managing transaction details and approvals<br>
+                • We do not control or process blockchain transactions
+            </div>
+        </section>
 
+        <!-- Section 4 -->
+        <section id="auto-reconnect">
+            <h2 class="section-title"><span class="section-number">04</span> Auto-Reconnect &amp; Local Data Storage
+            </h2>
+            <p>To provide a seamless experience, Comic Bonk stores your wallet's public address on your device after you
+                connect for the first time. This allows the app to:</p>
+            <ul>
+                <li>Automatically reconnect your wallet session when you reopen the app</li>
+                <li>Let you start the game without reconnecting your wallet each time</li>
+            </ul>
+            <div class="callout callout-info">
+                <strong>What is stored locally:</strong> Only your public wallet address, unlock status, and game high
+                scores. <strong>No private keys, seed phrases, or sensitive information is ever stored.</strong>
+            </div>
+            <p>You can clear all stored data at any time by using the "Disconnect" option in the game. Uninstalling the
+                app will also clear all locally stored data.</p>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="fees">
+            <h2 class="section-title"><span class="section-number">05</span> Fees &amp; No Refund Policy</h2>
+            <p>Certain features (such as NFT "Gaming Pass" minting) may require blockchain transactions.</p>
+            <div class="callout callout-danger">
+                <strong>All transactions are final.</strong> No refunds will be provided for any blockchain transaction
+                fees or minting costs.
+            </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section id="gameplay">
+            <h2 class="section-title"><span class="section-number">06</span> Gameplay &amp; Updates</h2>
+            <p>We may modify, update, or discontinue features of the app without prior notice. We do not guarantee
+                uninterrupted access.</p>
+        </section>
+
+        <!-- Section 7 -->
+        <section id="prohibited">
+            <h2 class="section-title"><span class="section-number">07</span> Prohibited Conduct</h2>
+            <p>You must not:</p>
+            <ul>
+                <li>Exploit bugs or vulnerabilities</li>
+                <li>Attempt unauthorized access or reverse engineering</li>
+                <li>Use the app for unlawful purposes</li>
+                <li>Interfere with smart contract functionality</li>
+            </ul>
+        </section>
+
+        <!-- Section 8 -->
+        <section id="ip">
+            <h2 class="section-title"><span class="section-number">08</span> Intellectual Property</h2>
+            <p>All branding, visual assets, and content within Comic Bonk are owned by us or licensed to us.
+                Unauthorized copying or redistribution is prohibited.</p>
+        </section>
+
+        <!-- Section 9 -->
+        <section id="liability">
+            <h2 class="section-title"><span class="section-number">09</span> Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, we are not liable for:</p>
+            <ul>
+                <li>Loss of funds</li>
+                <li>Failed or delayed blockchain transactions</li>
+                <li>Network congestion</li>
+                <li>Wallet-related losses</li>
+                <li>Third-party service disruptions</li>
+            </ul>
+        </section>
+
+        <!-- Section 10 -->
+        <section id="disclaimer">
+            <h2 class="section-title"><span class="section-number">10</span> Disclaimer</h2>
+            <p>Comic Bonk is provided <strong style="color:#fff">"as is"</strong> without warranties of any kind. We do
+                not guarantee the value of NFTs or digital assets. Nothing in this app constitutes financial or
+                investment advice.</p>
+        </section>
+
+        <!-- Section 11 -->
+        <section id="changes">
+            <h2 class="section-title"><span class="section-number">11</span> Changes to Terms</h2>
+            <p>We may update these terms from time to time. Continued use of the app after updates constitutes
+                acceptance of the revised terms. These terms are governed by the applicable laws of the user's
+                jurisdiction and general international commercial principles where applicable.</p>
+        </section>
+
+        <!-- Section 12 -->
+        <section id="contact">
+            <h2 class="section-title"><span class="section-number">12</span> Contact</h2>
+            <p>For any questions regarding these terms, contact:</p>
+            <ul>
+                <li><strong>Support Email:</strong> Comiclab101@gmail.com</li>
+                <li><strong>Publisher Email:</strong> sayedhasan01740@gmail.com</li>
+                <li><strong>Website:</strong> <a href="https://github.com/Sayed01740"
+                        style="color:var(--primary)">github.com/Sayed01740</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Comic Bonk. All rights reserved.</p>
+        <p style="margin-top:8px"><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a>
+            · <a href="copyright.html">Copyright</a></p>
+    </footer>
 </body>
 
 </html>
