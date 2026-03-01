@@ -1,33 +1,383 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Copyright - Comic Bonk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copyright Notice — Comic Bonk</title>
+    <meta name="description"
+        content="Copyright and intellectual property notice for Comic Bonk, a blockchain arcade game built for the Solana Seeker.">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #9945FF;
+            --primary-light: rgba(153, 69, 255, 0.12);
+            --secondary: #14F195;
+            --secondary-light: rgba(20, 241, 149, 0.12);
+            --bg: #0a0a0f;
+            --surface: #13131a;
+            --surface-2: #1c1c26;
+            --border: rgba(255, 255, 255, 0.06);
+            --text: #f0f0f5;
+            --text-muted: #8a8a9a;
+            --text-dim: #5a5a6a;
+            --danger: #ff4c6a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            line-height: 1.6
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(153, 69, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(153, 69, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+        }
+
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary), #7b2ff2);
+            padding: 4px 0;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .meta-row {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            color: var(--text-dim);
+        }
+
+        .meta-item strong {
+            color: var(--text-muted);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 40px 0;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2.section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            font-size: 0.92rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 16px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .callout {
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 18px 0;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .callout-danger {
+            background: rgba(255, 76, 106, 0.08);
+            border-left: 3px solid var(--danger);
+            color: #ffb0bd;
+        }
+
+        .callout-info {
+            background: var(--secondary-light);
+            border-left: 3px solid var(--secondary);
+            color: #b0ffe0;
+        }
+
+        .callout strong {
+            color: #fff;
+        }
+
+        /* Copyright symbol */
+        .copyright-symbol {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: var(--primary-light);
+            border: 2px solid rgba(153, 69, 255, 0.25);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.82rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .container {
+                padding: 32px 16px 60px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <div class="top-bar">Legal Documentation — Comic Bonk</div>
 
-    <h1>Copyright Notice</h1>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Legal Portal</a>
 
-    <p>© 2026 Comic Bonk. All rights reserved.</p>
+        <header>
+            <div class="copyright-symbol">©</div>
+            <span class="badge">Copyright</span>
+            <h1>Copyright Notice</h1>
+            <p class="subtitle">Intellectual property rights and usage restrictions for Comic Bonk.</p>
+            <div class="meta-row">
+                <div class="meta-item"><strong>App:</strong> Comic Bonk</div>
+                <div class="meta-item"><strong>Package:</strong> com.comicbonk.app</div>
+                <div class="meta-item"><strong>Year:</strong> 2026</div>
+            </div>
+        </header>
 
-    <p>All content, branding, graphics, and software related to Comic Bonk are owned by the publisher unless otherwise
-        stated.</p>
+        <div class="divider"></div>
 
-    <p>Unauthorized copying, redistribution, or commercial use is prohibited without written permission.</p>
+        <!-- Section 1 -->
+        <section>
+            <h2 class="section-title"><span class="section-number">01</span> Ownership</h2>
+            <p>All content, branding, assets, artwork, characters, game mechanics, and code within <strong
+                    style="color:#fff">Comic Bonk</strong> are the exclusive intellectual property of <strong
+                    style="color:#fff">sayed</strong> and Comic Bonk developers, unless otherwise stated or attributed
+                to third parties (such as open-source libraries).</p>
+            <p>This includes but is not limited to:</p>
+            <ul>
+                <li>The "Comic Bonk" name, logo, and all associated branding</li>
+                <li>All in-game characters, artwork, sprites, and visual assets</li>
+                <li>Game design, mechanics, levels, and audiovisual elements</li>
+                <li>The Comic Bonk NFT "Gaming Pass" design and metadata</li>
+                <li>All source code, smart contract code, and technical implementations</li>
+                <li>Marketing materials, screenshots, and promotional content</li>
+            </ul>
+        </section>
 
-    <p>For legal inquiries, contact: Comiclab101@gmail.com</p>
+        <!-- Section 2 -->
+        <section>
+            <h2 class="section-title"><span class="section-number">02</span> Restrictions</h2>
+            <p>You are granted a limited, personal, non-transferable, non-exclusive license to use the app for
+                entertainment purposes. You may <strong style="color:var(--danger)">not</strong>:</p>
+            <div class="callout callout-danger">
+                <strong>Prohibited Actions:</strong><br>
+                ✕ Redistribute, sell, sublicense, or decompile the application<br>
+                ✕ Reuse characters, artwork, or branding for any commercial purposes without explicit written
+                consent<br>
+                ✕ Claim ownership of any part of the app's intellectual property<br>
+                ✕ Create derivative works based on Comic Bonk content without permission<br>
+                ✕ Use any Comic Bonk assets in other applications, websites, or NFT projects<br>
+                ✕ Reverse engineer, deobfuscate, or extract any source code or assets
+            </div>
+        </section>
 
+        <!-- Section 3 -->
+        <section>
+            <h2 class="section-title"><span class="section-number">03</span> Third-Party Content</h2>
+            <p>Comic Bonk may utilize open-source components or community-provided assets. Any such content remains the
+                property of its respective owners and is used under their applicable licenses.</p>
+            <p>Third-party frameworks, libraries, and tools used in the development of Comic Bonk retain their original
+                licensing terms and copyrights.</p>
+        </section>
+
+        <!-- Section 4 -->
+        <section>
+            <h2 class="section-title"><span class="section-number">04</span> NFT Ownership Rights</h2>
+            <p>When you mint or acquire a Comic Bonk "Gaming Pass" NFT:</p>
+            <ul>
+                <li>You own the NFT token on the Solana blockchain</li>
+                <li>You receive a personal, non-commercial license to display the NFT artwork associated with your token
+                </li>
+                <li>You do <strong style="color:var(--danger)">not</strong> receive intellectual property rights to the
+                    underlying artwork, brand, or game content</li>
+                <li>You may transfer or sell the NFT token itself, but the underlying IP remains with Comic Bonk</li>
+            </ul>
+        </section>
+
+        <!-- Section 5 -->
+        <section>
+            <h2 class="section-title"><span class="section-number">05</span> DMCA &amp; Infringement</h2>
+            <p>If you believe your copyrighted work has been used in Comic Bonk without proper authorization, or if you
+                discover unauthorized use of Comic Bonk content elsewhere, please contact us immediately with details of
+                the alleged infringement.</p>
+        </section>
+
+        <!-- Section 6 -->
+        <section>
+            <h2 class="section-title"><span class="section-number">06</span> Permissions &amp; Contact</h2>
+            <p>To request permission for usage, licensing inquiries, or copyright-related questions, please contact us:
+            </p>
+            <div class="callout callout-info">
+                <strong>Contact Information:</strong><br>
+                Publisher: <strong>sayed</strong><br>
+                Email: <strong>sayedhasan01740@gmail.com</strong><br>
+                Support: <strong>Comiclab101@gmail.com</strong><br>
+                Website: <a href="https://github.com/Sayed01740"
+                    style="color:var(--secondary)">github.com/Sayed01740</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Comic Bonk. All rights reserved.</p>
+        <p style="margin-top:8px"><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a>
+            · <a href="copyright.html">Copyright</a></p>
+    </footer>
 </body>
 
 </html>
