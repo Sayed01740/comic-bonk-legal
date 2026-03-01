@@ -4,94 +4,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comic Bonk - Legal Documentation</title>
+    <title>Comic Bonk — Legal &amp; Compliance Portal</title>
+    <meta name="description"
+        content="Official legal documentation portal for Comic Bonk, a blockchain arcade game on the Solana Seeker.">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         :root {
             --primary: #9945FF;
+            --primary-light: rgba(153, 69, 255, 0.12);
             --secondary: #14F195;
-            --bg: #0f0f12;
-            --text: #ffffff;
-            --text-muted: #a0a0ab;
-            --card-bg: #1a1a1f;
+            --secondary-light: rgba(20, 241, 149, 0.12);
+            --bg: #0a0a0f;
+            --surface: #13131a;
+            --border: rgba(255, 255, 255, 0.06);
+            --text: #f0f0f5;
+            --text-muted: #8a8a9a;
+            --text-dim: #5a5a6a;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: var(--bg);
+            background: var(--bg);
             color: var(--text);
-            margin: 0;
-            padding: 20px;
+            padding: 24px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(153, 69, 255, 0.12) 0%, transparent 60%),
+                linear-gradient(rgba(153, 69, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(153, 69, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 60px 60px, 60px 60px;
+            z-index: -1;
         }
 
         .card {
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 48px 40px;
+            border-radius: 24px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            max-width: 400px;
+            max-width: 460px;
             width: 100%;
-            border: 1px solid #333;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary), #7b2ff2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
         }
 
         h1 {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
         }
 
-        p {
+        .tag {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+
+        .description {
             color: var(--text-muted);
-            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            margin-bottom: 36px;
         }
 
         .links {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
         }
 
         .btn {
-            background: rgba(153, 69, 255, 0.1);
-            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            color: var(--text);
             text-decoration: none;
-            padding: 15px;
-            border-radius: 12px;
+            padding: 18px 22px;
+            border-radius: 14px;
             font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid var(--primary);
+            font-size: 0.92rem;
+            transition: all 0.25s ease;
         }
 
         .btn:hover {
-            background: var(--primary);
-            color: white;
+            background: var(--primary-light);
+            border-color: rgba(153, 69, 255, 0.3);
             transform: translateY(-2px);
         }
 
-        .footer {
-            margin-top: 2rem;
+        .btn-icon {
             font-size: 0.8rem;
-            color: #444;
+            color: var(--text-dim);
+            transition: color 0.2s;
+        }
+
+        .btn:hover .btn-icon {
+            color: var(--primary);
+        }
+
+        .footer {
+            margin-top: 32px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                padding: 36px 24px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="card">
+        <div class="logo">CB</div>
         <h1>Comic Bonk</h1>
-        <p>Legal & Compliance Portal</p>
+        <p class="tag">com.comicbonk.app</p>
+        <p class="description">Official Legal &amp; Compliance documentation for the Solana Seeker dApp Store.</p>
 
         <div class="links">
-            <a href="privacy.html" class="btn">Privacy Policy</a>
-            <a href="terms.html" class="btn">Terms of Service</a>
-            <a href="copyright.html" class="btn">Copyright Notice</a>
+            <a href="privacy.html" class="btn">
+                <span>🔒 Privacy Policy</span>
+                <span class="btn-icon">→</span>
+            </a>
+            <a href="terms.html" class="btn">
+                <span>📄 Terms of Service</span>
+                <span class="btn-icon">→</span>
+            </a>
+            <a href="copyright.html" class="btn">
+                <span>©️ Copyright Notice</span>
+                <span class="btn-icon">→</span>
+            </a>
         </div>
 
         <div class="footer">
-            Official legal documentation for the Solana Seeker dApp Store.
+            <p>&copy; 2026 Comic Bonk. All rights reserved.</p>
+            <p>Published by <a href="https://github.com/Sayed01740">sayed</a> · <a
+                    href="mailto:Comiclab101@gmail.com">Comiclab101@gmail.com</a></p>
         </div>
     </div>
 </body>
